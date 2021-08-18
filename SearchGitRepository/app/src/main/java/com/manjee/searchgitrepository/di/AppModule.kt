@@ -2,6 +2,8 @@ package com.manjee.searchgitrepository.di
 
 import com.manjee.searchgitrepository.api.SearchApi
 import com.manjee.searchgitrepository.api.UrlProvider
+import com.manjee.searchgitrepository.data.repository.SearchRepository
+import com.manjee.searchgitrepository.data.repository.SearchRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -47,5 +49,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providerSearchApiService(retrofit: Retrofit) = retrofit.create(SearchApi::class.java)
+    fun providerSearchApiService(retrofit: Retrofit) = retrofit.create(SearchApi::class.java)!!
+
+    @Singleton
+    @Provides
+    fun providerSearchRepository(searchApi: SearchApi): SearchRepository {
+        return SearchRepositoryImpl(searchApi)
+    }
 }
