@@ -4,6 +4,7 @@ import com.manjee.searchgitrepository.api.SearchApi
 import com.manjee.searchgitrepository.api.UrlProvider
 import com.manjee.searchgitrepository.data.repository.SearchRepository
 import com.manjee.searchgitrepository.data.repository.SearchRepositoryImpl
+import com.manjee.searchgitrepository.view.RepositorySearchAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -55,5 +56,10 @@ object AppModule {
     @Provides
     fun providerSearchRepository(searchApi: SearchApi): SearchRepository {
         return SearchRepositoryImpl(searchApi)
+    }
+
+    @Provides
+    fun providerRepositorySearchAdapter(): RepositorySearchAdapter {
+        return RepositorySearchAdapter()
     }
 }
