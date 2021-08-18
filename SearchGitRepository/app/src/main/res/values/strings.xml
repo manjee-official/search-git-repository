@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SearchGitRepository</string>
+    <string name="string_please_input_keyword">검색어를 입력해주세요</string>
+    <string name="string_search">검색</string>
 </resources>
