@@ -37,7 +37,7 @@ class RepositorySearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initUi()
+        initView()
         initObserve()
         initListener()
     }
@@ -47,8 +47,8 @@ class RepositorySearchFragment : Fragment() {
         binding = null
     }
 
-    private fun initUi() {
-
+    private fun initView() {
+        viewModel.getRepositoryList()
     }
 
     private fun initObserve() {
