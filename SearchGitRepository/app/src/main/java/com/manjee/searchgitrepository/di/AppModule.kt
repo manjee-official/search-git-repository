@@ -1,5 +1,6 @@
 package com.manjee.searchgitrepository.di
 
+import com.manjee.searchgitrepository.api.SearchApi
 import com.manjee.searchgitrepository.api.UrlProvider
 import dagger.Module
 import dagger.Provides
@@ -43,4 +44,8 @@ object AppModule {
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
+    @Provides
+    @Singleton
+    fun providerSearchApiService(retrofit: Retrofit) = retrofit.create(SearchApi::class.java)
 }
